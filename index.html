@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title>ONT: MATNT</title>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDudFyTGhbU2CvJtJNxlYPcJfRQnZ1pbTg&libraries=geometry,places,visualization"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script type="text/javascript" src="script.js"></script>
+
+
+
+</head>
+
+<body>
+
+
+
+
+
+
+    <table style="width:100%">
+    
+        <tr>
+        
+            <th>
+                <h3>My geolocation is :</h3></th>
+        
+            <th>
+                <h3>The nearest Tower is:</h3></th>
+        
+            <th>
+                <h3></h3></th>
+            <th>
+                <h3>Home marker coords :</h3></th>
+            <th>
+                <h3></h3></th>
+            <th>
+                <h3></h3></th>
+            <th>
+                <h3></h3></th>
+            </tr>
+        <tr>
+            <td>
+                <p id="location">...</p>
+            </td>
+            <td>
+                <p>
+                    <div id="distance">...</div>  </p>
+            </td>
+            <td>
+                <p>
+                    <div id="distance2"></div> </p>
+            </td>
+            <td>
+                <p id="test">...</p>
+            </td>
+            <td>
+                <p id="nearest">...</p>
+            </td>
+            <td>
+                <p id="radius1">...</p>
+            </td>
+            <td>
+                <p id="radius2">...</p>
+            </td>
+        </tr>
+
+    </table>
+    <input onclick="returnPosition();" style="margin-left:10px" class="button" type=button value="  ☸  ">
+    <input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+    <input id="latlng" class="controls" type="text" placeholder="Enter your GPS coords">
+    <input class="button" id="submit" type="button" value="GO!">
+
+
+
+	
+	<input onclick="openPanel();" class="button" type=button value="open">
+   
+    <br/>
+    <br/>
+    <div id="map" class="item">loading...</div>
+    <div id="panel" class="item">
+      <input onclick="closePanel();" class="button" type=button value="&times;">  
+		<div id="chainelist" ></div>
+		<div id="orientation" >
+			<div id="compass" >
+			
+			<img src="needle.png" id="needle" >
+			
+			
+			</div>
+			<div id="degree" ></div>
+		</div>
+		<div id="list" ></div>
+    </div>
+	
+
+
+</body>
+
+</html>
