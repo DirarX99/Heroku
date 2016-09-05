@@ -74,6 +74,14 @@ table {
     width: 90%;
 	margin-left: auto;
 	margin-right: auto;
+    border-collapse: collapse;
+	margin-bottom: 30px;
+
+	
+}
+#TS{
+	
+	
 	
 }
 
@@ -92,13 +100,24 @@ td {
     text-align: center;
     font-weight: bold;
 }
-table {
-    border-collapse: collapse;
-}
+
 
 table, th, td {
-    border: 1px solid #fafafa;
+    border: 0px solid #fafafa;
 }
+
+
+tr:hover {
+    text-decoration-color: aqua;
+    background-color: #dddddd;
+	
+}
+
+tr:hover td {
+    background-color: transparent;
+}
+
+
 
 #submit {
     margin-right: 30%;
@@ -158,7 +177,7 @@ table, th, td {
 
 
 #compass{
-	background-image: url("compass.png");
+	background-image: url("img/compass.png");
 	width:250px;
 	height: 309px;
 	margin-bottom: 10px;

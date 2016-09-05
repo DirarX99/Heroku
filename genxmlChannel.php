@@ -17,10 +17,10 @@ if (!$conn) {
 }
 
 $value= $_COOKIE["v"];
-   
+ /*  
 $antenne='';
 
-$sql = "select antenne from station where nom='$value' ";
+$sql = "select antenne from mesure where id='$value' ";
 $result = $conn->query($sql);
 
 
@@ -58,9 +58,9 @@ while ($row = $result->fetch_assoc()){
     echo "0 results";
 }
 
+*/
 
-
-$sql = "select * from chaine where antenne='$antenne' ";
+$sql = "select * from mesure where nom='$value' ";
 $result = $conn->query($sql);
 
 
@@ -71,9 +71,11 @@ while ($row = $result->fetch_assoc()){
  
   $node = $dom->createElement("chaine");
   $newnode = $parnode->appendChild($node);
-	//$newnode->setAttribute("antenne",$row['antenne']);
-  $newnode->setAttribute("nom",$row['nom']);
+
+  $newnode->setAttribute("chaine",$row['chaine']);
+	$newnode->setAttribute("antenne",$row['antenne']);
 	$newnode->setAttribute("FS",$row['FS']);	
+	
 }
    header ("Content-Type:text/xml");
   echo $dom->saveXML();

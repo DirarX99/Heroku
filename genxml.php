@@ -20,10 +20,10 @@ if (!$conn) {
 
 
 
-$sql = "select * from station where etat='ES'";
+$sql = "select * from mesure";
 $result = $conn->query($sql);
 
-// Iterate through the rows, adding XML nodes for each
+
 
 if ($result->num_rows > 0) {
   
@@ -32,11 +32,11 @@ while ($row = $result->fetch_assoc()){
   // ADD TO XML DOCUMENT NODE
   $node = $dom->createElement("marker");
   $newnode = $parnode->appendChild($node);
-  $newnode->setAttribute("nom",$row['nom']);
+  $newnode->setAttribute("nom", $row['nom']);
   $newnode->setAttribute("latitude", $row['latitude']);
   $newnode->setAttribute("longitude", $row['longitude']);
-  $newnode->setAttribute("gouvernorat", $row['gouvernorat']);
-  $newnode->setAttribute("delegation", $row['delegation']);
+  $newnode->setAttribute("antenne", $row['antenne']);
+  
 }
    header ("Content-Type:text/xml");
   echo $dom->saveXML();

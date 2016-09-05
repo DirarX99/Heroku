@@ -19,8 +19,8 @@ if (!$conn) {
 $value= $_COOKIE["v"];
    
 $antenne='';
-
-$sql = "select antenne from station where nom='$value' ";
+/*
+$sql = "select antenne from mesure where nom='$value' ";
 $result = $conn->query($sql);
 
 
@@ -36,12 +36,12 @@ while ($row = $result->fetch_assoc()){
     echo "0 results";
 }
 
+*/
 
 
 
 
-
-$sql = "select * from antennes where nom='$antenne' ";
+$sql = "select * from antennes where nom='$value' ";
 $result = $conn->query($sql);
 
 
