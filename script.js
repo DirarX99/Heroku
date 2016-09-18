@@ -609,17 +609,18 @@ function displayError(error) {
 
  function alertname(valeurtest){
 				//0alert(valeurtest);
-	 			document.cookie="v=" + valeurtest;
-	
+	 			document.cookie="f=" + valeurtest;
+	 			console.log("test: "+valeurtest);
+		openCompassPanel();
 	 setTimeout(
 		function(){createPath();}
 	 			
-				,100);
+				,550);
 			}
 //---------------------------------------------------------------------------------------------------------------------
 function openPanel() {
 	var screenwidth=screen.width;
-	
+	document.getElementById("openPanel").style.display = 'none';
 	if(screenwidth<769){
 		
 		document.getElementById("panel").style.width = "100%";
@@ -647,6 +648,39 @@ function openPanel() {
 }
 function closePanel() {
     document.getElementById("panel").style.width = "0%";
+	document.getElementById("openPanel").style.display = 'block';
+}
+//---------------------------------------------------------------------------------------------------------------------
+function openCompassPanel() {
+	var screenwidth=screen.width;
+	
+	if(screenwidth<769){
+		
+		document.getElementById("compassPanel").style.width = "100%";
+		
+	}
+   else if(screenwidth>769 && screenwidth<1050){
+	  document.getElementById("compassPanel").style.width = "70%"; 
+	   
+   }
+	   else if(screenwidth>1050 && screenwidth<1200){
+	  document.getElementById("compassPanel").style.width = "50%"; 
+	   
+   }
+	   else {
+	  document.getElementById("compassPanel").style.width = "30%"; 
+	   
+   }
+	// document.getElementById("panel").style.width = "30%";
+	
+   passValue();
+	//createPath();
+	getChaine();	
+	
+	
+}
+function closeCompassPanel() {
+    document.getElementById("compassPanel").style.width = "0%";
 }
 //---------------------------------------------------------------------------------------------------------------------
 function getChaine() {
@@ -657,7 +691,7 @@ function getChaine() {
 		  var table='';
 		 
 		  
-		  table+='<th>'+''+'</th>'+'<th>'+'Chaine'+'</th>'+'<th>'+'Antenne'+'</th>'+'<th>'+'Signal'+'</th>'+'<th>'+''+'</th>';
+		  table+='<th>'+'#'+'</th>'+'<th>'+'Chaine'+'</th>'+'<th>'+'Antenne'+'</th>'+'<th>'+'Signal Quality'+'</th>'+'<th>'+'Orientation'+'</th>';
         for (var i = 0; i < chaines.length; i++) {
 			
 			//var pantenne = chaines[i].getAttribute("nom");
@@ -673,7 +707,7 @@ function getChaine() {
 			table+='<tr>';
 			var test1=String(antennech);
 			
-table+='<td>'+(i+1)+'</td>'+'<td width=70%>'+name+'</td>'+'<td>'+antennech+'</td>'+'<td>'+'<img src="'+status+'"></td>'+'<td>'+'<button class="button" onclick="alertname(\''+ test1 +'\')">Go!</button></td>';
+table+='<td>'+(i+1)+'</td>'+'<td width=70%>'+name+'</td>'+'<td>'+antennech+'</td>'+'<td>'+'<img src="'+status+'"></td>'+'<td>'+'<button class="btn btn-primary glyphicon glyphicon-menu-right" onclick="alertname(\''+ test1 +'\')"data-toggle="tooltip" data-placement="top" title="Voir orientation et details"></button></td>';
 		
 		table+='</tr>';
 		
@@ -686,7 +720,7 @@ table+='<td>'+(i+1)+'</td>'+'<td width=70%>'+name+'</td>'+'<td>'+antennech+'</td
 			
 
 	var test = document.getElementById("list");
-	test.innerHTML = '<table border=1>'+table+'</table>';
+	test.innerHTML = '<table>'+table+'</table>';
 			
 			
 			

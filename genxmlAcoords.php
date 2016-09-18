@@ -16,7 +16,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$value= $_COOKIE["v"];
+$value= $_COOKIE["f"];
    
 $antenne='';
 /*

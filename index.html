@@ -8,10 +8,11 @@
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<title>ONT project</title>
 	<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDudFyTGhbU2CvJtJNxlYPcJfRQnZ1pbTg&libraries=geometry,places,visualization"></script>
-	<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+	<link rel="shortcut icon" type="image/png" href="img/favicon.png" />
 	<link rel="stylesheet" type="text/css" href="style.css">
 
 	<script type="text/javascript" src="script.js"></script>
+
 	<!-- Bootstrap -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="customstyle.css" rel="stylesheet">
@@ -28,19 +29,22 @@
 
 
 	<div id="overlay">
-<div >
-		<img class="spinner" src="img/favicon.png">
-	<H2>Loading...</H2>
-		</div> 
-</div>
+		<div>
+			<img class="spinner" src="img/favicon.png">
+
+		</div>
+	</div>
 
 	<script>
-	var overlay = document.getElementById("overlay");
+		var overlay = document.getElementById("overlay");
+		setTimeout(function () {
 
-window.addEventListener('load', function(){
-  overlay.style.display = 'none';
-})
-	
+			overlay.className += 'fade';
+			setTimeout(function () {
+				overlay.style.display = 'none';
+			}, 1000);
+
+		}, 3000);
 	</script>
 
 	<table id="TS" style="width:100%">
@@ -146,12 +150,15 @@ window.addEventListener('load', function(){
 		<div class="row">
 			<nav id="control" class="navbar navbar-default">
 				<div class="container-fluid">
+
 					<div class="row">
-						<button type="button" class="btn btn-primary btn-md" onclick="returnPosition();"><span class="glyphicon glyphicon-screenshot"></button>
+						<button id="returnPosition" type="button" class="navbar-left btn btn-primary btn-md" onclick="returnPosition();"data-toggle="tooltip" data-placement="right" title="Locate marker"><span class="glyphicon glyphicon-screenshot"></button>
+																	
 						<div class="col-md-3 hidden-xs hidden-sm">
 						<div class="input-group ">
 						
 						  <input id="pac-input" type="text" class="form-control" placeholder="Enter a location" >
+							<span class="input-group-addon" id="sizing-addon1"></span>
 						</div>
 						</div>	
 						<div class="col-md-3 hidden-xs hidden-sm">
@@ -169,36 +176,45 @@ window.addEventListener('load', function(){
 				<!-- /.col-lg-6 -->
 
 
-							<button id="openPanel" type="button" class="btn btn-danger navbar-right" onclick="openPanel();" data-toggle="tooltip" data-placement="left" title="list des chaine"><span class="glyphicon glyphicon-list"></span> Open menu</button>	
-							
-					</div>
-					<!-- /.row -->
-					<div class=" nav navbar-header ">
+				<button id="openPanel" type="button" class="btn btn-danger navbar-right" onclick="openPanel();" data-toggle="tooltip" data-placement="left" title="list des chaine"><span class="glyphicon glyphicon-list"></span> Open menu</button>
+
+		</div>
+		<!-- /.row -->
+		<div class=" nav navbar-header ">
 
 
 
-
-				</div>
-
-			</nav>
 
 		</div>
 
-		<div class="container-fluid">
-
-			<div class="row">
-				<div id="map" class=" map-view col-xs-12"><div class="text-center alert alert-warning col-xs-3 " role="alert"><span class="glyphicon glyphicon-exclamation-sign"></span><strong> We need your loacation </strong>,Allow location in order to load the map!</div>
-	</div>
+		</nav>
 
 	</div>
+
+	<div class="container-fluid">
+
+		<div class="row">
+			<div id="map" class=" map-view col-xs-12">
+				<div class="text-center alert alert-warning col-xs-3 " role="alert"><span class="glyphicon glyphicon-exclamation-sign"></span><strong> We need your loacation </strong>,Allow location in order to load the map!</div>
+			</div>
+
+		</div>
 
 
 
 	</div>
 	<div id="panel" class="">
-		<input onclick="closePanel();" class="button" type=button value="&times;">
+		<button onclick="closePanel();" class="btn btn-default glyphicon glyphicon-remove" ></button>
+		<div id="list"></div>
+		
+	</div>
+				
+				
+		<div id="compassPanel" class="">
+			<button onclick="closeCompassPanel();" class="btn btn-default glyphicon glyphicon-menu-left" ></button>
 		<div id="chainelist"></div>
 		<div id="orientation">
+			
 			<div id="compass">
 
 				<img src="img/needle.png" id="needle">
@@ -214,12 +230,11 @@ window.addEventListener('load', function(){
 
 
 
-
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<button type="button" class="btn btn-primary " data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove"aria-hidden="true"></span></button>
 					<h4 class="modal-title" id="myModalLabel">Modal title</h4>
 				</div>
 				<div class="modal-body">
