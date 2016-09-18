@@ -13,7 +13,9 @@
 }
 
 #mainLogo{
-background: url(Geoloqi-Logo-Color-On-Light.png) center / contain no-repeat;
+
+background: url(img/mainlogo.png) center / contain no-repeat;
+
 width: 150px;
 transform: translateX(-50%);
 left: 50%;
@@ -34,6 +36,15 @@ position: absolute;
     bottom: 40px;
     left: 0;
 
+}
+
+
+#map{
+	
+	background-image: url("img/pattern.png");
+	
+    background-repeat: repeat;
+	
 }
 
 .modal-backdrop{
@@ -67,3 +78,10 @@ position: absolute;
 	margin: 0px 10px 0px 10px;
 	 
 }
+
+a{ text-decoration: none !important;
+}
+a:hover {
+ cursor:pointer;
+}
+

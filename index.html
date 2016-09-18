@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<title>Bootstrap 101 Template</title>
+	<title>ONT project</title>
 	<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDudFyTGhbU2CvJtJNxlYPcJfRQnZ1pbTg&libraries=geometry,places,visualization"></script>
 
 	<link rel="stylesheet" type="text/css" href="style.css">
@@ -92,7 +92,11 @@
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap.min.js"></script>
 
-
+	<script>
+		$(document).ready(function () {
+			$('[data-toggle="tooltip"]').tooltip();
+		});
+	</script>
 
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
@@ -113,7 +117,7 @@
 
 
 					<ul class="nav navbar-nav navbar-right navbar-btn">
-						<li><a class="btn btn-default" id="help" href="#"><span class="glyphicon glyphicon-question-sign"></span> Help</a></li>
+						<li><a class="btn btn-default" id="help" href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-question-sign"></span> Help</a></li>
 
 					</ul>
 				</div>
@@ -130,6 +134,7 @@
 			<nav id="control" class="navbar navbar-default">
 				<div class="container-fluid">
 					<div class="row">
+						<button type="button" class="btn btn-primary btn-md" onclick="returnPosition();"><span class="glyphicon glyphicon-screenshot"></button>
 						<div class="col-md-3 hidden-xs hidden-sm">
 						<div class="input-group ">
 						
@@ -143,16 +148,16 @@
 								<span class="input-group-btn">
 									<button id="submit" class="btn btn-default" type="button">Go!</button>
       							</span>
-							</div>
-							<!-- /input-group -->
-						</div>
-						<!-- /.col-lg-6 -->
+					</div>
+					<!-- /input-group -->
+				</div>
+				<!-- /.col-lg-6 -->
 
-						<!-- /.col-lg-6 -->
-						<button type="button" class="btn btn-primary btn-md" onclick="returnPosition();"><span class="glyphicon glyphicon-screenshot"></button>
-						<button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
-						</button>
-						<button id="openPanel" type="button" class="btn btn-danger navbar-right" onclick="openPanel();"><span class=\> Open menu</button>		
+				<!-- /.col-lg-6 -->
+
+
+				<button id="openPanel" type="button" class="btn btn-danger navbar-right" onclick="openPanel();" data-toggle="tooltip" data-placement="left" title="list des chaine"><span class=\> Open menu</button>	
+							
 					</div>
 					<!-- /.row -->
 					<div class=" nav navbar-header ">
@@ -169,49 +174,50 @@
 		<div class="container-fluid">
 
 			<div class="row">
-				<div id="map" class=" map-view col-xs-12">dirar</div>
+				<div id="map" class=" map-view col-xs-12"><div class="text-center alert alert-warning col-xs-3 " role="alert"><span class="glyphicon glyphicon-exclamation-sign"></span><strong> We need your loacation </strong>,Allow location in order to load the map!</div>
+	</div>
+
+	</div>
+
+
+
+	</div>
+	<div id="panel" class="">
+		<input onclick="closePanel();" class="button" type=button value="&times;">
+		<div id="chainelist"></div>
+		<div id="orientation">
+			<div id="compass">
+
+				<img src="img/needle.png" id="needle">
+
 
 			</div>
-
-
-
+			<div id="degree"></div>
 		</div>
-		<div id="panel" class="item">
-			<input onclick="closePanel();" class="button" type=button value="&times;">
-			<div id="chainelist"></div>
-			<div id="orientation">
-				<div id="compass">
-
-					<img src="img/needle.png" id="needle">
+		<div id="list"></div>
+	</div>
 
 
+
+
+
+
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Modal title</h4>
 				</div>
-				<div id="degree"></div>
+				<div class="modal-body">
+					<button>Dirar</button>
+					<p>qkfgjhwbfwjfgwqjkhf</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
 			</div>
-			<div id="list"></div>
-		</div>
-
-
-
-
-
-	
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="myModalLabel">Modal title</h4>
-					</div>
-					<div class="modal-body">
-						<button>Dirar</button>
-						<p>qkfgjhwbfwjfgwqjkhf</p>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Save changes</button>
-					</div>
-				</div>
 		</div>
 	</div>
 
@@ -220,7 +226,8 @@
 	<div class="container-fluid">
 		<div class="row">
 			<footer class="footer">
-				<p class="text-muted text-center">by Dirar</p>
+				<p class="text-muted text-center small">Copyright © 2017.ONT. All rights reserved. Created by <a>Dirar Houimli</a></p>
+
 			</footer>
 		</div>
 	</div>

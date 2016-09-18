@@ -95,7 +95,7 @@ function showMap(coords) {
          var markerTower = new google.maps.Marker({
           map: map,
            position: point,
-           icon: "img/point.png",
+           icon: "img/hide.png",
 		  title: name	 
 			});
 			//createTowerMarker(point, radT1);
@@ -618,7 +618,26 @@ function displayError(error) {
 			}
 //---------------------------------------------------------------------------------------------------------------------
 function openPanel() {
-    document.getElementById("panel").style.width = "25%";
+	var screenwidth=screen.width;
+	
+	if(screenwidth<769){
+		
+		document.getElementById("panel").style.width = "100%";
+		
+	}
+   else if(screenwidth>769 && screenwidth<1050){
+	  document.getElementById("panel").style.width = "70%"; 
+	   
+   }
+	   else if(screenwidth>1050 && screenwidth<1200){
+	  document.getElementById("panel").style.width = "50%"; 
+	   
+   }
+	   else {
+	  document.getElementById("panel").style.width = "30%"; 
+	   
+   }
+	// document.getElementById("panel").style.width = "30%";
 	
    passValue();
 	//createPath();
