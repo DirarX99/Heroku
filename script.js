@@ -350,7 +350,7 @@ function nearestTower(){
 			pdistance.innerHTML = nearest;
 				
 		console.log("the final number of towers: "+DBtowers.length);
-			}, 60);
+			},1000);
 	}
 
 //-----------------------------------------------------------------------------------------------------------------
