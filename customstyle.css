@@ -2,6 +2,55 @@
     margin:0;
     padding:0;
 }
+
+
+body{
+    width: 100%;
+  
+    overflow-x: hidden;
+}
+@import "compass/css3";
+@include keyframes(bounce) {
+	0%, 20%, 50%, 80%, 100% {
+    @include transform(translateY(0));
+  }
+	40% {
+    @include transform(translateY(-30px));
+  }
+	60% {
+    @include transform(translateY(-15px));
+  }
+}
+
+
+.spinner{
+    width: 80px;
+    height: 80px;
+    background-color: white;
+   
+  
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right: 0;
+    margin: auto;
+    
+    @include animation(bounce 2s infinite);
+}
+
+
+
+#overlay{
+  height:100%;
+  width:100%;
+  background-color:white;
+  position:fixed;
+  left:0;
+  top:0;
+ }
+
+
 .navbar-default{
 	background-color: white;
 	border-radius: 0;

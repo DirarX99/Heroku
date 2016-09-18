@@ -27,8 +27,21 @@
 <body>
 
 
+	<div id="overlay">
+<div >
+		<img class="spinner" src="img/favicon.png">
+	<H2>Loading...</H2>
+		</div> 
+</div>
 
+	<script>
+	var overlay = document.getElementById("overlay");
 
+window.addEventListener('load', function(){
+  overlay.style.display = 'none';
+})
+	
+	</script>
 
 	<table id="TS" style="width:100%">
 
@@ -211,7 +224,7 @@
 				</div>
 				<div class="modal-body">
 					<button>Dirar</button>
-					<p>qkfgjhwbfwjfgwqjkhf</p>
+					<p>test</p>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
