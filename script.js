@@ -26,7 +26,7 @@ function displayLocation(position) {
 	var longitude = position.coords.longitude;
 
 	var plocation = document.getElementById("location");
-	plocation.innerHTML = latitude + " , " + longitude + "</br>";
+	
 
 	showMap(position.coords);
 
@@ -322,8 +322,7 @@ function nearestTower(){
 			
 			test = marker.getPosition();
 				
-	var ptest = document.getElementById("test");
-	ptest.innerHTML = test;
+	
 	
 	var distance = (google.maps.geometry.spherical.computeDistanceBetween(test, DBtowers[i].getPosition()) / 1000).toFixed(2);
 	var pdistance = document.getElementById("distance");
@@ -347,7 +346,7 @@ function nearestTower(){
 				
 				console.log("the nearest point is : "+nearest);
 			
-			pdistance.innerHTML = nearest;
+			
 				
 		console.log("the final number of towers: "+DBtowers.length);
 			},1000);
@@ -379,7 +378,7 @@ function createMarker(latLng) {
 	google.maps.event.addListener(marker, "dragend", function (event) {
 		console.log("marker dropped !");
 		var plocation = document.getElementById("location");
-		plocation.innerHTML = event.latLng.lat() + "," + event.latLng.lng();
+		
 		nearestTower();
 	});
 

@@ -47,61 +47,7 @@
 		}, 3000);
 	</script>
 
-	<table id="TS" style="width:100%">
-
-		<tr>
-
-			<th>
-				<h3>My geolocation is :</h3></th>
-
-			<th>
-				<h3>The nearest Tower is:</h3></th>
-
-			<th>
-				<h3></h3></th>
-			<th>
-				<h3>Home marker coords :</h3></th>
-			<th>
-				<h3></h3></th>
-			<th>
-				<h3></h3></th>
-			<th>
-				<h3></h3></th>
-		</tr>
-		<tr>
-			<td>
-				<p id="location">...</p>
-			</td>
-			<td>
-				<p>
-					<div id="distance">...</div>
-				</p>
-			</td>
-			<td>
-				<p>
-					<div id="distance2"></div>
-				</p>
-			</td>
-			<td>
-				<p id="test">...</p>
-			</td>
-			<td>
-				<p id="nearest">...</p>
-			</td>
-			<td>
-				<p id="radius1">...</p>
-			</td>
-			<td>
-				<p id="radius2">...</p>
-			</td>
-		</tr>
-
-	</table>
-
-
-
-
-
+	
 
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -176,7 +122,7 @@
 				<!-- /.col-lg-6 -->
 
 
-				<button id="openPanel" type="button" class="btn btn-danger navbar-right" onclick="openPanel();" data-toggle="tooltip" data-placement="left" title="list des chaine"><span class="glyphicon glyphicon-list"></span> Open menu</button>
+				<button id="openPanel" type="button" class="btn btn-warning navbar-right" onclick="openPanel();" data-toggle="tooltip" data-placement="left" title="list des chaine"><span class="glyphicon glyphicon-list"></span> Open menu</button>
 
 		</div>
 		<!-- /.row -->
@@ -192,15 +138,22 @@
 	</div>
 
 	<div class="container-fluid">
-
+		
 		<div class="row">
-			<div id="map" class=" map-view col-xs-12">
-				<div class="text-center alert alert-warning col-xs-3 " role="alert"><span class="glyphicon glyphicon-exclamation-sign"></span><strong> We need your loacation </strong>,Allow location in order to load the map!</div>
+			<div id="map" class=" map-view ">
+				<div id="activealert" class="text-center alert alert-warning   " role="alert"><span class="glyphicon glyphicon-exclamation-sign"></span><strong> We need your loacation </strong>,Allow location in order to load the map!
+				
+				</div>
+				<img id="loadingGPS" src="img/loading.gif">
 			</div>
+					
+			
 
+		
 		</div>
 
 
+		
 
 	</div>
 	<div id="panel" class="">
